@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>song recommend</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+	<link rel="shortcut icon" href="{{ url_for('static', filename='fevicon.png') }}">
+</head>
+<body >
+
+	<p1>Music Recommendation System</p1>
+		<p>(Using emotion detection in python)</p><br><br><br>
+
+	<form action="{{url_for('emotion_detect')}}" method="POST">
+
+		{%if data == "punjabi"%}		
+		<p3>You choose Punjabi Songs</p3><br>		
+		<p2>Choose your own singer</p2><br>	
+
+		{%elif data == "english"%}
+		<p3>You choose English songs</p3><br>
+		<p2>Choose your own singer</p2><br>
+
+		{%elif data == "hindi"%}
+		<p3>You choose Hindi songs</p3><br>
+		<p2>Choose your own singer</p2><br>
+
+		{%elif data == "bhojpuri"%}
+		<p3>You choose Bhojpuri songs</p3><br>
+		<p2>Choose your own singer</p2><br>
+		{%endif%}
+		<input type="text" name="singer">
+		<br><br>
+		<input type="submit" name="btn" value="Detect Emotion" class="btn btn-outline-success btn-lg">
+	</form>
+
+</body>
+</html>
